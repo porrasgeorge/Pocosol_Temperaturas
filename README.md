@@ -1,0 +1,1 @@
+# Pocosol_Temperaturas

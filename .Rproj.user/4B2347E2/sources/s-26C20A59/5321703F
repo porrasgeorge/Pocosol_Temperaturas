@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1566941105809.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "5321703F",
+    "lastKnownWriteTime" : 1566945420,
+    "last_content_update" : 1566945420010,
+    "path" : "C:/Data Science/Pocosol/Pocosol temp.R",
+    "project_path" : "Pocosol temp.R",
+    "properties" : {
+        "cursorPosition" : "79,33",
+        "scrollLine" : "64",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
