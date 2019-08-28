@@ -1,15 +1,21 @@
+library(foreach)
+library(doParallel)
+
 #source("LoadFilesAndLibraries.R")
 source("Functions.R")
 
+cores = detectCores()
+cl <- makeCluster(cores[1])
+registerDoParallel(cl)
+
+
 start_time <- Sys.time()
 
-
-# Time difference of 1.000327 mins
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 folder <- "C:/Data Science/ArhivosGenerados/"
 
 file_name <- paste(folder, "Temp U1")
-for (pot in seq(5, 12, 0.5)) {
+foreach(pot = seq(5, 12, 0.5), .packages = c('dplyr', 'lubridate', 'openxlsx')) %dopar% {
   makeFile(ds = U1, 
            p_base = pot,
            p_delta = 0.25,
@@ -17,7 +23,7 @@ for (pot in seq(5, 12, 0.5)) {
 }
 
 file_name <- paste(folder, "Temp U2")
-for (pot in seq(5, 12, 0.5)) {
+foreach(pot = seq(5, 12, 0.5), .packages = c('dplyr', 'lubridate', 'openxlsx')) %dopar% {
   makeFile(ds = U2, 
            p_base = pot, 
            p_delta = 0.25,
@@ -25,7 +31,7 @@ for (pot in seq(5, 12, 0.5)) {
 }
 
 file_name <- paste(folder, "Temp UG")
-for (pot in seq(0.4, 2, 0.1)) {
+foreach(pot = seq(0.4, 2, 0.1), .packages = c('dplyr', 'lubridate', 'openxlsx')) %dopar% {
   makeFile(ds = UG, 
            p_base = pot,
            p_delta = 0.05,
@@ -33,8 +39,8 @@ for (pot in seq(0.4, 2, 0.1)) {
 }
 
 end_time <- Sys.time()
-
 end_time - start_time
 
+stopCluster(cl)
 
 #source("Histograms.R")
