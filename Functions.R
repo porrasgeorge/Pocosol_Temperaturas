@@ -60,6 +60,7 @@ makeFile <- function(ds, p_base = 10, p_delta = 0.2, Filename = "archivo"){
               I_exc_prom = round(mean(CORRIEN_EXCIT),2),
               V_exc_prom = round(mean(TENSION_EXCIT),2))
   
+  registros <- length(D_filtered$Potencia)
   
   DS_list <- list("Diario" = U_day, "Mensual" = U_month, "Anual" = U_year)
   write.xlsx(DS_list, 
@@ -68,7 +69,10 @@ makeFile <- function(ds, p_base = 10, p_delta = 0.2, Filename = "archivo"){
                           toString(p_base - p_delta),
                           "-",
                           toString(p_base + p_delta),
-                          "MW.xlsx", 
+                          "MW", 
+                          "_(",
+                          toString(registros),
+                          "registros).xlsx",
                           sep = ""))
   
 }
