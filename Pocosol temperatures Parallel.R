@@ -8,7 +8,6 @@ cores = detectCores()
 cl <- makeCluster(cores[1])
 registerDoParallel(cl)
 
-
 start_time <- Sys.time()
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
